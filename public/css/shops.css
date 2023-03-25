@@ -1,0 +1,16 @@
+.shop-card{
+    width: 360px;
+    border-radius: 10px;
+    margin: 30px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.shop-photo img{
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.shp-content{
+    padding: 15px 25px;
+}
