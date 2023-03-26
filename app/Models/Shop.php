@@ -9,5 +9,10 @@ class Shop extends Model
 {
     use HasFactory;
 
+    public function favorite()
+    {
+        return $this->hasMany('App\Models\Favorite');
+    }
+
     protected $fillable = ['name', 'area', 'genre', 'information', 'photo'];
 }
