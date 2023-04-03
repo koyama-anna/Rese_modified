@@ -15,23 +15,10 @@ class Shop extends Model
         return $this->hasMany('App\Models\Favorite');
     }
 
-    protected $fillable = ['name', 'area', 'genre', 'information', 'photo'];
+    protected $guarded = array('id');
 
-    protected $appends = [
-        'favorited_by_user'
-    ];
+    public static $rules = array(
+        'name' => 'required',
 
-
-    //アクセサ　favorited_by_user
-
-    public function getFavoritedByUser()
-    {
-        if (Auth::check()) {
-            return false;
-        }
-
-        return $this->favorite->contains(function ($user) {
-            return $user->id === Auth::user()->id;
-        });
-    }
+    );
 }
