@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Favorite;
-use App\Models\Shop;
-use App\Models\User;
+use Illuminate\Http\Request;
 
-class ShopInfoController extends Controller
+class FavoriteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +14,9 @@ class ShopInfoController extends Controller
      */
     public function index()
     {
-        $shops = Shop::all();
+        $favorites = Favorite::all();
         return response()->json([
-            'data' => $shops
+            'data' => $favorites
         ], 200);
     }
 
@@ -36,31 +34,22 @@ class ShopInfoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Favorite $favorite)
     {
-        $shop = Shop::find($id);
-        if ($shop) {
-            return response()->json([
-                'data' => $shop
-            ], 200);
-        } else {
-            return response()->json([
-                'message' => 'Not found',
-            ], 404);
-        }
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Favorite $favorite)
     {
         //
     }
@@ -68,10 +57,10 @@ class ShopInfoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Favorite $favorite)
     {
         //
     }

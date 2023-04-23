@@ -43,16 +43,6 @@ class ShopsTableSeeder extends Seeder
         $shop->fill($param)->save();
 
         $param = [
-            'name' => '',
-            'area' => '',
-            'genre' => '',
-            'information' => '',
-            'photo' => ''
-        ];
-        $shop = new Shop;
-        $shop->fill($param)->save();
-
-        $param = [
             'name' => 'ルーク',
             'area' => '東京都',
             'genre' => 'イタリアン',
@@ -126,15 +116,6 @@ class ShopsTableSeeder extends Seeder
             'genre' => '焼肉',
             'information' => '毎年チャンピオン牛を買い付け、仙台市長から表彰されるほどの上質な仕入れをする精肉店オーナーの本当に美味しい国産牛を食べてもらいたいという思いから誕生したお店です。',
             'photo' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/yakiniku.jpg'
-        ];
-        $shop = new Shop;
-        $shop->fill($param)->save();
-        $param = [
-            'name' => '',
-            'area' => '',
-            'genre' => '',
-            'information' => '',
-            'photo' => ''
         ];
         $shop = new Shop;
         $shop->fill($param)->save();
