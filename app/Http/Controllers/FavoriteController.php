@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Favorite;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FavoriteController extends Controller
 {
@@ -14,7 +16,8 @@ class FavoriteController extends Controller
      */
     public function index()
     {
-        $favorites = Favorite::all();
+        $user = Auth::user();
+        $favorites = Favorite::where('user_id', Auth::user()->id)->get();
         return response()->json([
             'data' => $favorites
         ], 200);
@@ -28,7 +31,10 @@ class FavoriteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $item = Favorite::create($request->all());
+        return response()->json([
+            'data' => $item
+        ], 201);
     }
 
     /**
@@ -39,7 +45,16 @@ class FavoriteController extends Controller
      */
     public function show(Favorite $favorite)
     {
-        //
+        $item = Favorite::find($favorite->id);
+        if ($item) {
+            return response()->json([
+                'data' => $item
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Not found',
+            ], 404);
+        }
     }
 
     /**
@@ -62,6 +77,15 @@ class FavoriteController extends Controller
      */
     public function destroy(Favorite $favorite)
     {
-        //
+        $item = Favorite::where('id', $favorite->id)->delete();
+        if ($item) {
+            return response()->json([
+                'message' => 'Deleted successfully',
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Not found',
+            ], 404);
+        }
     }
 }
