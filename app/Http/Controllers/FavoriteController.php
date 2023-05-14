@@ -31,7 +31,11 @@ class FavoriteController extends Controller
      */
     public function store(Request $request)
     {
-        $item = Favorite::create($request->all());
+        $user = Auth::user()->id;
+        $form = $request->all();
+        $param = ['user_id' => $user];
+        $param_merge = array_merge($form, $param);
+        $item = Favorite::create($param_merge);
         return response()->json([
             'data' => $item
         ], 201);
@@ -75,9 +79,11 @@ class FavoriteController extends Controller
      * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Favorite $favorite)
+    public function destroy(Request $request)
     {
-        $item = Favorite::where('id', $favorite->id)->delete();
+        $user = Auth::user()->id;
+        $form = $request->all();
+        $item = Favorite::where('user_id', $user)->where('shop_id', $form)->delete();
         if ($item) {
             return response()->json([
                 'message' => 'Deleted successfully',
