@@ -15,6 +15,11 @@ class Shop extends Model
         return $this->hasMany('App\Models\Favorite');
     }
 
+    public function reservation()
+    {
+        return $this->hasMany('App\Models\Reservation');
+    }
+
     protected $guarded = array('id');
 
     public static $rules = array(
