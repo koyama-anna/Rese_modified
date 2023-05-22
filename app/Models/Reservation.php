@@ -9,6 +9,8 @@ class Reservation extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['date', 'number', 'shop_id', 'time', 'user_id'];
+
     public function user()
     {
         return $this->belongsTo('App\Models\User');
