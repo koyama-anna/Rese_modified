@@ -3,6 +3,7 @@
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ShopInfoController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -38,4 +39,5 @@ Route::middleware((['auth:sanctum']))->group(function () {
     Route::apiResource('/v1/shop', ShopInfoController::class);
     Route::apiResource('/v1/favorite', FavoriteController::class);
     Route::apiResource('/v1/reservation', ReservationController::class);
+    Route::apiResource('/v1/user', UserController::class);
 });
