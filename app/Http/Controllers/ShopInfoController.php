@@ -14,9 +14,19 @@ class ShopInfoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $shops = Shop::all();
+        $query = Shop::query();
+        if (!empty($request->area)) {
+            $query = Shop::where('area', $request->area);
+        }
+        if (!empty($request->genre)) {
+            $query = Shop::where('genre', $request->genre);
+        }
+        if (!empty($request->name)) {
+            $query = Shop::where('name', 'LIKE BINARY', "%{$request->name}%");
+        }
+        $shops = $query->get();
         return response()->json([
             'data' => $shops
         ], 200);
