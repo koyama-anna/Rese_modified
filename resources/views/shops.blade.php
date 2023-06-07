@@ -30,7 +30,8 @@
                     <button type="submit" value="detail">詳しくみる</button>
                 </div>
                 <div class="favorite-btn">
-                    ♡
+
+                    <button type="button" value="favorite"></button>
                 </div>
             </div>
         </div>
