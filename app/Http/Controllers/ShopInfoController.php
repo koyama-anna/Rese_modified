@@ -18,13 +18,13 @@ class ShopInfoController extends Controller
     {
         $query = Shop::query();
         if (!empty($request->area)) {
-            $query = Shop::where('area', $request->area);
+            $query = $query->where('area', $request->area);
         }
         if (!empty($request->genre)) {
-            $query = Shop::where('genre', $request->genre);
+            $query = $query->where('genre', $request->genre);
         }
         if (!empty($request->name)) {
-            $query = Shop::where('name', 'LIKE BINARY', "%{$request->name}%");
+            $query = $query->where('name', 'LIKE BINARY', "%{$request->name}%");
         }
         $shops = $query->get();
         return response()->json([
