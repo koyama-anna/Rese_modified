@@ -107,8 +107,9 @@ export default {
 .menu-btn span:after {
     top: 8px;
 }
-.form-item {
+.login {
     margin: 0 auto;
+    padding-top: 250px;
     text-align: center;
 }
 
