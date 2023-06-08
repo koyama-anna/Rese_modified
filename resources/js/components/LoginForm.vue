@@ -1,9 +1,7 @@
 <template>
     <div class="header-menu">
         <div class="hamburger-menu">
-            <label for="menu-btn-check" class="menu-btn" @click="menu"
-                ><span></span
-            ></label>
+            <label for="menu-btn-check" class="menu-btn"><span></span></label>
         </div>
         <div class="center">
             <h1 class="header-logo">Rese</h1>
@@ -12,15 +10,20 @@
     <div class="login">
         <div class="login-ttl">Login</div>
         <div class="form-item">
-            <label for="email">Email</label>
-            <input id="email" type="text" v-model="email" />
+            <label for="email" class="email-label"></label>
+            <input id="email" type="text" v-model="email" placeholder="Email" />
         </div>
         <div class="form-item">
-            <label for="password">Password</label>
-            <input id="password" type="text" v-model="password" />
+            <label for="password"></label>
+            <input
+                id="password"
+                type="text"
+                v-model="password"
+                placeholder="Password"
+            />
         </div>
         <div class="form-item">
-            <button @click="handle()">Login</button>
+            <button @click="handle()" class="login-btn">ログイン</button>
         </div>
     </div>
 </template>
@@ -109,8 +112,35 @@ export default {
 }
 .login {
     margin: 0 auto;
-    padding-top: 250px;
-    text-align: center;
+    transform: translate(0, 200px);
+    width: 30%;
+    border-radius: 5px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.login-ttl {
+    padding: 15px;
+    background-color: #077af2;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+#email,
+#password {
+    width: 80%;
+    margin: 10px 0 10px 25px;
+    border: none;
+    border-bottom: 2px solid #ebebeb;
+}
+.login-btn {
+    background-color: #077af2;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    margin-left: 75%;
 }
 
 label {

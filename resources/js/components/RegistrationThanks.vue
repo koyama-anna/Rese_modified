@@ -12,28 +12,19 @@
                 </div>
             </div>
         </div>
-
         <div class="thanks-card">
             <div class="card">
-                <div class="thanks">ご予約ありがとうございます</div>
+                <div class="thanks">会員登録ありがとうございます</div>
                 <div class="back">
-                    <button @click="$router.go(-1)" class="back-btn">
-                        戻る
-                    </button>
+                    <router-link to="/login" class="back-btn">
+                        ログインする</router-link
+                    >
                 </div>
             </div>
         </div>
     </div>
 </template>
-<script>
-export default {
-    methods: {
-        menu() {
-            this.$router.push("/menu");
-        },
-    },
-};
-</script>
+<script></script>
 <style scoped>
 .header-logo {
     position: fixed;
@@ -112,8 +103,8 @@ export default {
 
 .back {
     background-color: #006cd9;
-    width: 50px;
-    padding: 5px 10px;
+    width: 100px;
+    padding: 8px 10px;
     border-radius: 5px;
     margin: 15px auto;
     margin-top: 15px;
@@ -121,6 +112,7 @@ export default {
 }
 
 .back-btn {
+    text-decoration: none;
     border: none;
     background: transparent;
     color: white;

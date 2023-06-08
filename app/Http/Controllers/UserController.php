@@ -29,7 +29,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form = $request->all();
+        $item = User::create($form);
+        return response()->json([
+            'data' => $item
+        ], 201);
     }
 
     /**

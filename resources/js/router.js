@@ -6,6 +6,8 @@ import LoginForm from "./components/LoginForm.vue";
 import ReserveDone from "./components/ReserveDone.vue";
 import MyPage from "./components/MyPage.vue";
 import TheMenu from "./components/TheMenu.vue";
+import Registration from "./components/Registration.vue";
+import RegistrationThanks from "./components/RegistrationThanks.vue";
 
 
 const routes = [
@@ -38,6 +40,16 @@ const routes = [
     path:"/menu",
     name:"themenu",
     component: TheMenu,
+},
+{
+    path:"/register",
+    name:"register",
+    component: Registration,
+},
+{
+    path:"/thanks",
+    name:"registerthanks",
+    component: RegistrationThanks,
 }
 ]
 
@@ -55,9 +67,11 @@ router.beforeEach((to, from, next) => {
         next()
     }
     if (!isAuthenticated) {
-        next({ name: 'loginform' })
+        next({ name: 'loginform' }) 
     } else {
         next()
     }
 })
+
+
 export default router;

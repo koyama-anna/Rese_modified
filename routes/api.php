@@ -35,6 +35,8 @@ Route::post('/login', function (Request $request) {
     return response()->json(['error' => 'Unauthorized'], 401);
 });
 
+
+
 Route::middleware((['auth:sanctum']))->group(function () {
     Route::apiResource('/v1/shop', ShopInfoController::class);
     Route::apiResource('/v1/favorite', FavoriteController::class);

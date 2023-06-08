@@ -29,6 +29,7 @@ Laravel と Vue.js を用いたアプリ作成方法を学ぶため。
 # 環境構築
 
 以下のコマンドで必要なパッケージをインストール後、サーバーを起動する。
-npm install
-npm run hot
-php artisan serve
+
+-   npm install
+-   npm run hot
+-   php artisan serve
