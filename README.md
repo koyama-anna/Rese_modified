@@ -30,6 +30,12 @@ Laravel と Vue.js を用いたアプリ作成方法を学ぶため。
 
 以下のコマンドで必要なパッケージをインストール後、サーバーを起動する。
 
+フロント側(Vue.js)
+
 -   npm install
--   npm run hot
+-   yarn serve
+
+バックエンド側(Laravel)
+
+-   composer install
 -   php artisan serve

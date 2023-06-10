@@ -35,11 +35,10 @@ Route::post('/login', function (Request $request) {
     return response()->json(['error' => 'Unauthorized'], 401);
 });
 
-
+Route::apiResource('/v1/user', UserController::class);
 
 Route::middleware((['auth:sanctum']))->group(function () {
     Route::apiResource('/v1/shop', ShopInfoController::class);
     Route::apiResource('/v1/favorite', FavoriteController::class);
     Route::apiResource('/v1/reservation', ReservationController::class);
-    Route::apiResource('/v1/user', UserController::class);
 });
